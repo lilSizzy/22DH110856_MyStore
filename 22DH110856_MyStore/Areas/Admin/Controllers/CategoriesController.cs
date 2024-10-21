@@ -60,24 +60,24 @@ namespace _22DH110856_MyStore.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(category);
         }
 
         // GET: Admin/Categories/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Category category = db.Categories.Find(id);
-            if (category == null)
-            {
-                return HttpNotFound();
-            }
-            return View(category);
-        }
+        //GET : Lấy dữ liệu của một danh mục đã có sao cho CategoryID = id
+        public ActionResult Edit(int? id) => Details(id);
+        //if (id == null)
+        //{
+        //  return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //
+        //}
+        //Category category = db.Categories.Find(id);
+        //if (category == null)
+        //{
+        //    return HttpNotFound();
+        //
+        //}
+        //return View(category);
 
         // POST: Admin/Categories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -96,19 +96,18 @@ namespace _22DH110856_MyStore.Areas.Admin.Controllers
         }
 
         // GET: Admin/Categories/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Category category = db.Categories.Find(id);
-            if (category == null)
-            {
-                return HttpNotFound();
-            }
-            return View(category);
-        }
+        public ActionResult Delete(int? id) => Details(id);
+        //if (id == null)
+        //{
+        // return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //
+        //}
+        //Category category = db.Categories.Find(id);
+        //if (category == null)
+        //{
+        //    return HttpNotFound();
+        //}
+        //return View(category);
 
         // POST: Admin/Categories/Delete/5
         [HttpPost, ActionName("Delete")]
